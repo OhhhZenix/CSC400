@@ -27,30 +27,25 @@ public class Main {
     myBag.displayAll();
 
     // test the contains method
-    String searchItem = "Item A";
-    printContainsMessage(myBag, searchItem);
-    searchItem = "Item D";
-    printContainsMessage(myBag, searchItem);
+    printContainsMessage(myBag, "Item A");
+    printContainsMessage(myBag, "Item D");
 
     // test the count method
-    searchItem = "Item A";
-    printCountMessage(myBag, searchItem);
-    searchItem = "Item B";
-    printCountMessage(myBag, searchItem);
-    searchItem = "Item C";
-    printCountMessage(myBag, searchItem);
+    printCountMessage(myBag, "Item A");
+    printCountMessage(myBag, "Item B");
+    printCountMessage(myBag, "Item C");
 
     // remove an element from the bag
-    searchItem = "Item B";
-    myBag.remove(searchItem);
+    String removedItem = "Item B";
+    myBag.remove(removedItem);
 
     // print bag data again
     myBag.displayAll();
 
     // test contains method for the removed element
-    printContainsMessage(myBag, searchItem);
+    printContainsMessage(myBag, removedItem);
 
     // test count method for the removed element
-    printCountMessage(myBag, searchItem);
+    printCountMessage(myBag, removedItem);
   }
 }
