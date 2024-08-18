@@ -10,69 +10,56 @@ public class Bag<T> {
   // Map over List for constant access time
   private HashMap<T, Integer> items;
 
-  // Sets up a bag instance
+  /** Constructs an empty Bag instance. */
   public Bag() {
     items = new HashMap<>();
   }
 
   /**
-   * Adds an item to the bag. If the item already exists, its count is incremented.
+   * Adds an item to the bag or increments its count if it already exists.
    *
-   * @param item The item to add.
+   * @param item the item to be added to the bag
    */
   public void add(T item) {
-    if (!contains(item)) {
-      items.put(item, 1);
-      return;
-    }
-
-    items.put(item, items.get(item) + 1);
+    items.merge(item, 1, Integer::sum);
   }
 
   /**
-   * Removes one occurrence of the item from the bag. If the item is not present, nothing happens.
+   * Removes an item from the bag or decrements its count if it exists.
    *
-   * @param item The item to remove.
+   * <p>If the count of the item is 1, the item is removed from the bag.
+   *
+   * @param item the item to be removed from the bag
    */
   public void remove(T item) {
-    if (!contains(item)) {
-      return;
-    }
-
-    int itemCount = items.get(item);
-    if (itemCount > 1) {
-      items.put(item, itemCount - 1);
-      return;
-    }
-
-    items.remove(item);
+    items.computeIfPresent(item, (key, count) -> count > 1 ? count - 1 : null);
   }
 
   /**
    * Checks if the bag contains the specified item.
    *
-   * @param item The item to check for.
-   * @return true if the item exists in the bag, otherwise false.
+   * @param item the item to check for presence in the bag
+   * @return true if the bag contains the item, false otherwise
    */
   public boolean contains(T item) {
     return items.containsKey(item);
   }
 
   /**
-   * Counts the occurrences of the specified item in the bag.
+   * Returns the count of occurrences of the specified item in the bag.
    *
-   * @param item The item to count.
-   * @return The count of the item, 0 if the item does not exist.
+   * @param item the item whose count is to be retrieved
+   * @return the count of occurrences of the item; returns 0 if the item is not in the bag
    */
   public int count(T item) {
-    if (!contains(item)) {
-      return 0;
-    }
-
-    return items.get(item);
+    return items.getOrDefault(item, 0);
   }
 
-  // Display all the data held in bag, if empty, displays nothing and warn user.
+  /**
+   * Displays all items and their counts in the bag.
+   *
+   * <p>If the bag is empty, a message indicating that the bag is empty is displayed.
+   */
   public void displayAll() {
     if (items.isEmpty()) {
       System.out.println("The bag is empty.");
