@@ -71,14 +71,35 @@ public class Bag<T> {
             System.out.println(String.format("%s has a count of %d.", item.toString(), count)));
   }
 
+  /**
+   * Returns the total number of elements in the bag, including duplicates.
+   *
+   * @return the total count of all elements in the bag
+   */
   public int size() {
     return items.values().stream().mapToInt(Integer::intValue).sum();
   }
 
+  /**
+   * Merges the elements of another bag into this bag.
+   *
+   * <p>For each element in the other bag, if it exists in this bag, their counts are summed. If it
+   * doesn't exist in this bag, the element is added with its count from the other bag.
+   *
+   * @param otherBag the bag to be merged into this bag
+   */
   public void merge(Bag<T> otherBag) {
     otherBag.items.forEach((item, count) -> items.merge(item, count, Integer::sum));
   }
 
+  /**
+   * Creates and returns a new bag containing only the distinct elements from this bag.
+   *
+   * <p>Each element from the original bag will appear exactly once in the new bag, regardless of
+   * how many times it appears in the original bag.
+   *
+   * @return a new Bag instance containing only distinct elements from this bag
+   */
   public Bag<T> distinct() {
     Bag<T> distinctBag = new Bag<>();
     items.keySet().forEach((item) -> distinctBag.add(item));
