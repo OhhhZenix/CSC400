@@ -72,11 +72,7 @@ public class Bag<T> {
   }
 
   public int size() {
-    int totalSize = 0;
-    for (int size : items.values()) {
-      totalSize += size;
-    }
-    return totalSize;
+    return items.values().stream().mapToInt(Integer::intValue).sum();
   }
 
   public void merge(Bag<T> otherBag) {
@@ -85,9 +81,7 @@ public class Bag<T> {
 
   public Bag<T> distinct() {
     Bag<T> distinctBag = new Bag<>();
-    for (T item : items.keySet()) {
-      distinctBag.add(item);
-    }
+    items.keySet().forEach((item) -> distinctBag.add(item));
     return distinctBag;
   }
 }
