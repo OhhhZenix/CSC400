@@ -14,8 +14,8 @@ public class Main {
     bagTwo.add("Item A");
 
     // Print the size of each bag
-    System.out.println("Size of bagOne: " + bagOne.size()); // Output: 3
-    System.out.println("Size of bagTwo: " + bagTwo.size()); // Output: 3
+    System.out.println("Size of bagOne: " + bagOne.size());
+    System.out.println("Size of bagTwo: " + bagTwo.size());
 
     // Merge bag 2 into bag 1
     bagOne.merge(bagTwo);
