@@ -1,5 +1,5 @@
 # Module 4
-A simple Java program. 
+A simple Java program that demonstrates an infix calculator. 
 
 ## Usage
 1. Ensure you are in the correct directory of the sub-project.
