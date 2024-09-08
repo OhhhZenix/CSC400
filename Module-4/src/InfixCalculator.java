@@ -13,7 +13,6 @@ public class InfixCalculator {
 
   private boolean isOperator(char character) {
     switch (character) {
-      // supported operators
       case '+':
       case '-':
       case '*':
@@ -40,6 +39,20 @@ public class InfixCalculator {
         return a % b;
       default:
         return null;
+    }
+  }
+
+  private int precedence(char operator) {
+    switch (operator) {
+      case '+':
+      case '-':
+        return 1;
+      case '*':
+      case '/':
+      case '%':
+        return 2;
+      default:
+        return -1;
     }
   }
 
@@ -71,6 +84,11 @@ public class InfixCalculator {
       }
       // extract operator
       else if (isOperator(character)) {
+        while (!operatorTokens.isEmpty()
+            && precedence(character) <= precedence(operatorTokens.peek())) {
+          operandTokens.push(
+              calculate(operandTokens.pop(), operandTokens.pop(), operatorTokens.pop()));
+        }
         operatorTokens.push(character);
       } else if (character == '(') {
         operatorTokens.push(character);
@@ -89,9 +107,6 @@ public class InfixCalculator {
         operatorTokens.pop();
       }
     }
-
-    // System.out.println("Operands: " + operandTokens.toString());
-    // System.out.println("Operators: " + operatorTokens.toString());
 
     if (operatorTokens.contains('(')) {
       throw new Exception("Missing ')', add '(' or balance the expression");
