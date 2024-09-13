@@ -1,6 +1,6 @@
 public class RadixSorter {
 
-  private static int getMaxValue(int[] array) {
+  private int getMaxValue(int[] array) {
     int max = array[0];
     for (int i = 0; i < array.length; i++) {
       int current = array[i];
@@ -9,7 +9,7 @@ public class RadixSorter {
     return max;
   }
 
-  private static void countSort(int[] array, int exp) {
+  private void countSort(int[] array, int exp) {
     int n = array.length;
     int i = 0;
     int[] output = new int[n];
@@ -33,7 +33,7 @@ public class RadixSorter {
     }
   }
 
-  public static void sort(int[] array) {
+  public void sort(int[] array) {
     int max = getMaxValue(array);
 
     for (int exp = 1; max / exp > 0; exp *= 10) {
