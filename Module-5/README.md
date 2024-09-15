@@ -1,5 +1,5 @@
 # Module 5
-A simple Java program that. 
+A simple Java program that demonstrates radix sort.
 
 ## Usage
 1. Ensure you are in the correct directory of the sub-project.
