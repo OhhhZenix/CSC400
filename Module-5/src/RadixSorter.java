@@ -28,7 +28,7 @@ public class RadixSorter {
    * Performs a counting sort on the array based on a specific digit place value.
    *
    * @param array The array to be sorted.
-   * @param exp The current digit place value (units, tens, hundreds, etc.).
+   * @param exp The current digit place value (ones, tens, hundreds, etc.).
    */
   private void countSort(int[] array, int exp) {
     // Get the length of the array.
