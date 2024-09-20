@@ -1,5 +1,5 @@
 # Module 6
-A simple Java program that .
+A simple Java program that demonstrates a custom implementation of a LinkedList ADT with an iterator.
 
 ## Usage
 1. Ensure you are in the correct directory of the sub-project.
