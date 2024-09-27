@@ -35,5 +35,17 @@ public class Main {
     int[] expectedTwo = {72, 96, 200, 332, 368, 516, 601, 652, 759, 930};
     System.out.println("Sample #2");
     test(sorter, sampleTwo, expectedTwo);
+
+    // Sample test case 3
+    int[] sampleThree = {170, -45, 75, -90, 802, -24, 2, -1, 23, 54};
+    int[] expectedThree = {-90, -45, -24, -1, 2, 23, 54, 75, 170, 802};
+    System.out.println("Sample #3");
+    test(sorter, sampleThree, expectedThree);
+
+    // Sample test case 4
+    int[] sampleFour = {-52, -56, -735, -13, -981, -97, -77, -182, -899, -153};
+    int[] expectedFour = {-981, -899, -735, -182, -153, -97, -77, -56, -52, -13};
+    System.out.println("Sample #4");
+    test(sorter, sampleFour, expectedFour);
   }
 }
