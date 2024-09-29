@@ -9,4 +9,12 @@ public class Person {
     this.lastName = lastName;
     this.age = age;
   }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public int getAge() {
+    return this.age;
+  }
 }
