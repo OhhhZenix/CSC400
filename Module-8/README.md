@@ -1,5 +1,5 @@
 # Module 8
-A simple Java program that demonstrates.
+A simple Java program that demonstrates a Queue ADT implementation.
 
 ## Usage
 1. Ensure you are in the correct directory of the sub-project.
