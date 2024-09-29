@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Queue<T> {
 
   private Node<T> front;
@@ -60,4 +62,6 @@ public class Queue<T> {
 
     return data;
   }
+
+  public void sort(Comparator<? super T> comparator, boolean descending) {}
 }
