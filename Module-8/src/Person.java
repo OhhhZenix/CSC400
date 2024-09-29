@@ -21,4 +21,10 @@ public class Person {
   public int getAge() {
     return this.age;
   }
+
+  @Override
+  public String toString() {
+    return String.format(
+        "{ firstName: %s, lastName: %s, age: %d }", this.firstName, this.lastName, this.age);
+  }
 }
