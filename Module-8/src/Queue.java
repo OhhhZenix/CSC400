@@ -154,19 +154,26 @@ public class Queue<T> {
 
   /**
    * Returns a string representation of the queue.
-   * 
+   *
    * @return a string listing the elements of the queue
    */
   @Override
   public String toString() {
-    StringBuilder builder = new StringBuilder();
-    for (int i = 0; i < this.data.size(); i++) {
-      builder.append(this.data.get(i).toString());
+    return this.data.toString();
+  }
 
-      if (i != this.data.size() - 1) {
-        builder.append("\n");
-      }
+  /**
+   * Prints the elements of the queue, each on a new line.
+   * If the queue is empty, a message is displayed.
+   */
+  public void print() {
+    if (this.isEmpty()) {
+      System.out.println("The queue is empty.");
+      return;
     }
-    return builder.toString();
+
+    for (T element : this.data) {
+      System.out.println(element.toString());
+    }
   }
 }
