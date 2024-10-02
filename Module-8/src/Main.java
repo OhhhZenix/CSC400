@@ -50,23 +50,29 @@ public class Main {
 
       if (queue.size() > 0) {
         System.out.println("Normal:");
-        System.out.println(queue.toString());
+        queue.print();
 
         queue.sort(new AgeComparator(), true);
         System.out.println("Sort by age in descending order:");
-        System.out.println(queue.toString());
+        queue.print();
 
         queue.sort(new LastNameComparator(), true);
         System.out.println("Sort by last name in descending order:");
-        System.out.println(queue.toString());
+        queue.print();
 
         queue.sort(new FirstNameComparator());
         System.out.println("Sort by first name:");
-        System.out.println(queue.toString());
+        queue.print();
 
         queue.sort(new NameComparator());
         System.out.println("Sort by full name:");
-        System.out.println(queue.toString());
+        queue.print();
+
+        System.out.println(String.format("Person at the front is %s", queue.peek().toString()));
+
+        queue.dequeue();
+        System.out.println("After dequeuing once:");
+        queue.print();
       }
     } catch (Exception e) {
       System.out.println("Oh no, something went wrong! Try again.");
